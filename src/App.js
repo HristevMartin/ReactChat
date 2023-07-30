@@ -9,15 +9,16 @@ import { useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-const firebaseApp = initializeApp({ 
-  apiKey: "AIzaSyD5tdIOIvhinUBgGq9pI3xCNofsClfygY8",
-  authDomain: "gym-website-393216.firebaseapp.com",
-  projectId: "gym-website-393216",
-  storageBucket: "gym-website-393216.appspot.com",
-  messagingSenderId: "2233859299",
-  appId: "1:2233859299:web:9f90e7f5283fb5483119d6",
-  measurementId: "G-J22NFQFVXB"
-});
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGESENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID
+};
+
 
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);  // Renaming to db for clarity
